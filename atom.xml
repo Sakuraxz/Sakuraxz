@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-20T07:06:24.626Z</updated>
+  <updated>2021-10-21T03:05:25.913Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,12 +17,19 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>too</title>
-    <link href="http://example.com/2021/10/20/too/"/>
-    <id>http://example.com/2021/10/20/too/</id>
-    <published>2021-10-20T07:06:24.000Z</published>
-    <updated>2021-10-20T07:06:24.626Z</updated>
+    <title>Learning about MarkDown</title>
+    <link href="http://example.com/2021/10/21/Learning%20abou%20MarkDown/"/>
+    <id>http://example.com/2021/10/21/Learning%20abou%20MarkDown/</id>
+    <published>2021-10-21T00:10:24.000Z</published>
+    <updated>2021-10-21T03:05:25.913Z</updated>
     
+    <content type="html"><![CDATA[<h1 id="Study-MarkDown-Language"><a href="#Study-MarkDown-Language" class="headerlink" title="Study MarkDown Language"></a>Study MarkDown Language</h1><h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h2><pre><code>Now I am going to write down and record how I study Markdown.I will take this opportunity to publish my first blog.</code></pre><h2 id="Body"><a href="#Body" class="headerlink" title="Body"></a>Body</h2><h3 id="The-code-block-method"><a href="#The-code-block-method" class="headerlink" title="The code block method"></a>The code block method</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;hello world!&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>This program outputs from <code>cout&lt;&lt;&quot;hello world!&quot;;</code></p><h3 id="The-list-method"><a href="#The-list-method" class="headerlink" title="The list method"></a>The list method</h3><h4 id="Ordered-List"><a href="#Ordered-List" class="headerlink" title="Ordered List"></a>Ordered List</h4><ol><li>list one</li><li>list two<ol><li>list two point one</li><li>list two point two</li></ol></li><li>list three<h4 id="Unordered-List"><a href="#Unordered-List" class="headerlink" title="Unordered List"></a>Unordered List</h4></li></ol><ul><li>list one</li><li>list two<ul><li>list two point one</li></ul></li><li>list three </li></ul><h3 id="The-Bold-and-Tilt"><a href="#The-Bold-and-Tilt" class="headerlink" title="The Bold and Tilt"></a>The Bold and Tilt</h3><h4 id="Bold"><a href="#Bold" class="headerlink" title="Bold"></a>Bold</h4><p>look！the word <strong>bold</strong> is in bold.</p><h4 id="Tilt"><a href="#Tilt" class="headerlink" title="Tilt"></a>Tilt</h4><p>look！the word <em>tilt</em> is in tilt.</p><h4 id="Bold-and-Tilt"><a href="#Bold-and-Tilt" class="headerlink" title="Bold and Tilt"></a>Bold and Tilt</h4><p>look！ the sentence <strong><em>hello world!</em></strong> is in bold and tilt.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Study-MarkDown-Language&quot;&gt;&lt;a href=&quot;#Study-MarkDown-Language&quot; class=&quot;headerlink&quot; title=&quot;Study MarkDown Language&quot;&gt;&lt;/a&gt;Study MarkDown La</summary>
+      
     
     
     
