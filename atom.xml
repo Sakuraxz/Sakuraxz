@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-21T03:05:25.913Z</updated>
+  <updated>2021-10-27T12:29:00.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,13 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>A diary</title>
+    <link href="http://example.com/2021/10/22/2021-10-27diary/"/>
+    <id>http://example.com/2021/10/22/2021-10-27diary/</id>
+    <published>2021-10-22T15:45:24.256Z</published>
+    <updated>2021-10-27T12:29:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="A-diary"><a href="#A-diary" class="headerlink" title="A diary"></a>A diary</h1><p><strong>Simply record what I had gone through today</strong></p><h2 id="The-Story-of-Taylor-Formula"><a href="#The-Story-of-Taylor-Formula" class="headerlink" title="The Story of Taylor Formula"></a>The Story of Taylor Formula</h2><p>&ensp;&ensp;&ensp;&ensp;When she asked me the question of Taylor Formula, I still didn’t realize the seriousness of the situation. But, after I read this question, I was lost in thought. Because she was right , but “so was the answer”.</p><p>&ensp;&ensp;&ensp;&ensp;The question was that “please get the Taylor expansion of cos(x^2), when x is equal to 0”. The answer was going to replace the x with the x^2 in the Taylor expansion of x. But in fact, if you take the derivative by definition, you should not get the correct answer.</p><p>&ensp;&ensp;&ensp;&ensp;After a long thought, I guessed I understood why this is happening. The substitution for the answer is essentially x^2 as the independent variable. But it doesn’t make sense in my opinion.</p><h2 id="The-Completion-of-Happiness-of-Psychology"><a href="#The-Completion-of-Happiness-of-Psychology" class="headerlink" title="The Completion of Happiness of Psychology"></a>The Completion of Happiness of Psychology</h2><p>&ensp;&ensp;&ensp;&ensp;Today I have officially finished the psychology of happiness course. It wasn’t that long, but I felt very practical in daily life. The Peak-End Rule and Emotion Management are the ones I have understood and used.</p><h3 id="The-Peak-End-Rule"><a href="#The-Peak-End-Rule" class="headerlink" title="The Peak-End Rule"></a>The Peak-End Rule</h3><p>&ensp;&ensp;&ensp;&ensp;Peak-end Rule states that if the experience is pleasant at the peak and end of an experience, then the experience as a whole is pleasant.<br>&ensp;&ensp;&ensp;&ensp;In the class meeting about sharing cultural communication, I used this theoty by playing a piece of bgm in powerpoint at the end of the day. It turned out that I got a lot of attention from the audience.Finally, the powerpoint is well displayed.</p><h3 id="Emotion-Management"><a href="#Emotion-Management" class="headerlink" title="Emotion Management"></a>Emotion Management</h3><p>&ensp;&ensp;&ensp;&ensp;This is one of my favorite topics.Negative and positive emotions, the focus of the topic,got me thinking. At this time, people place too much emphasis on positive emotions. But the effects of negative emotions should not be ignored. In fact, It makes people better at surviving. This might be strange, but it seems reasonable.<br>&ensp;&ensp;&ensp;&ensp;For instance,there was been a lot going on lately. So I had anxiety and tension,which clears my head, and I can quickly make a plan to solve the current situation. This is amazing, isn’t it?</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;A-diary&quot;&gt;&lt;a href=&quot;#A-diary&quot; class=&quot;headerlink&quot; title=&quot;A diary&quot;&gt;&lt;/a&gt;A diary&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Simply record what I had gone through toda</summary>
+      
+    
+    
+    
+    <category term="Daily gossip" scheme="http://example.com/categories/Daily-gossip/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Learning about MarkDown</title>
     <link href="http://example.com/2021/10/21/Learning%20abou%20MarkDown/"/>
     <id>http://example.com/2021/10/21/Learning%20abou%20MarkDown/</id>
     <published>2021-10-21T00:10:24.000Z</published>
-    <updated>2021-10-21T03:05:25.913Z</updated>
+    <updated>2021-10-27T13:14:00.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Study-MarkDown-Language"><a href="#Study-MarkDown-Language" class="headerlink" title="Study MarkDown Language"></a>Study MarkDown Language</h1><h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h2><pre><code>Now I am going to write down and record how I study Markdown.I will take this opportunity to publish my first blog.</code></pre><h2 id="Body"><a href="#Body" class="headerlink" title="Body"></a>Body</h2><h3 id="The-code-block-method"><a href="#The-code-block-method" class="headerlink" title="The code block method"></a>The code block method</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;hello world!&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>This program outputs from <code>cout&lt;&lt;&quot;hello world!&quot;;</code></p><h3 id="The-list-method"><a href="#The-list-method" class="headerlink" title="The list method"></a>The list method</h3><h4 id="Ordered-List"><a href="#Ordered-List" class="headerlink" title="Ordered List"></a>Ordered List</h4><ol><li>list one</li><li>list two<ol><li>list two point one</li><li>list two point two</li></ol></li><li>list three<h4 id="Unordered-List"><a href="#Unordered-List" class="headerlink" title="Unordered List"></a>Unordered List</h4></li></ol><ul><li>list one</li><li>list two<ul><li>list two point one</li></ul></li><li>list three </li></ul><h3 id="The-Bold-and-Tilt"><a href="#The-Bold-and-Tilt" class="headerlink" title="The Bold and Tilt"></a>The Bold and Tilt</h3><h4 id="Bold"><a href="#Bold" class="headerlink" title="Bold"></a>Bold</h4><p>look！the word <strong>bold</strong> is in bold.</p><h4 id="Tilt"><a href="#Tilt" class="headerlink" title="Tilt"></a>Tilt</h4><p>look！the word <em>tilt</em> is in tilt.</p><h4 id="Bold-and-Tilt"><a href="#Bold-and-Tilt" class="headerlink" title="Bold and Tilt"></a>Bold and Tilt</h4><p>look！ the sentence <strong><em>hello world!</em></strong> is in bold and tilt.</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Study-MarkDown-Language"><a href="#Study-MarkDown-Language" class="headerlink" title="Study MarkDown Language"></a>Study MarkDown Language</h1><h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h2><pre><code>Now I am going to write down and record how I study Markdown.I will take this opportunity to publish my first blog.</code></pre><h2 id="Body"><a href="#Body" class="headerlink" title="Body"></a>Body</h2><h3 id="The-code-block-method"><a href="#The-code-block-method" class="headerlink" title="The code block method"></a>The code block method</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;hello world!&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>This program outputs from <code>cout&lt;&lt;&quot;hello world!&quot;;</code></p><h3 id="The-list-method"><a href="#The-list-method" class="headerlink" title="The list method"></a>The list method</h3><h4 id="Ordered-List"><a href="#Ordered-List" class="headerlink" title="Ordered List"></a>Ordered List</h4><ol><li>list one</li><li>list two<ol><li>list two point one</li><li>list two point two</li></ol></li><li>list three<h4 id="Unordered-List"><a href="#Unordered-List" class="headerlink" title="Unordered List"></a>Unordered List</h4></li></ol><ul><li>list one</li><li>list two<ul><li>list two point one</li></ul></li><li>list three </li></ul><h3 id="The-Bold-and-Tilt"><a href="#The-Bold-and-Tilt" class="headerlink" title="The Bold and Tilt"></a>The Bold and Tilt</h3><h4 id="Bold"><a href="#Bold" class="headerlink" title="Bold"></a>Bold</h4><p>look！the word <strong>bold</strong> is in bold.</p><h4 id="Tilt"><a href="#Tilt" class="headerlink" title="Tilt"></a>Tilt</h4><p>look！the word <em>tilt</em> is in tilt.</p><h4 id="Bold-and-Tilt"><a href="#Bold-and-Tilt" class="headerlink" title="Bold and Tilt"></a>Bold and Tilt</h4><p>look！the sentence <strong><em>hello world!</em></strong> is in bold and tilt.</p><hr><p><strong>First Update:</strong> 2021-10-27 21:14:00</p><h4 id="The-Blank-Space"><a href="#The-Blank-Space" class="headerlink" title="The Blank Space"></a>The Blank Space</h4><p>&ensp;&ensp;&ensp;&ensp;look! The paragraph was preceded by a blank.</p>]]></content>
     
     
       
@@ -33,6 +55,8 @@
     
     
     
+    <category term="Initialization" scheme="http://example.com/categories/Initialization/"/>
+    
     
   </entry>
   
@@ -41,7 +65,7 @@
     <link href="http://example.com/2021/10/20/hello-world/"/>
     <id>http://example.com/2021/10/20/hello-world/</id>
     <published>2021-10-20T02:22:54.110Z</published>
-    <updated>2021-10-20T02:22:54.110Z</updated>
+    <updated>2021-10-27T14:58:56.574Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
     
@@ -52,6 +76,8 @@
       
     
     
+    
+    <category term="Initialization" scheme="http://example.com/categories/Initialization/"/>
     
     
   </entry>
