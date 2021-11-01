@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-28T12:29:00.000Z</updated>
+  <updated>2021-11-01T15:26:19.142Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>The Default Parameters</title>
+    <link href="http://example.com/2021/11/01/The-default-parameters/"/>
+    <id>http://example.com/2021/11/01/The-default-parameters/</id>
+    <published>2021-11-01T12:26:24.000Z</published>
+    <updated>2021-11-01T15:26:19.142Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="C-default-parameters"><a href="#C-default-parameters" class="headerlink" title="C++ default parameters"></a>C++ default parameters</h1><h2 id="Perface"><a href="#Perface" class="headerlink" title="Perface:"></a>Perface:</h2><p>&ensp;&ensp;&ensp;&ensp;In C++, we can specify default values for parameters. </p><p>&ensp;&ensp;&ensp;&ensp;Default parameter are automatically used when a function call does not specify an argument corresponding to the parameter.<br><em>parameter = formal parameter, argument= actual parameter.</em></p><h2 id="The-sample"><a href="#The-sample" class="headerlink" title="The sample:"></a>The sample:</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">func</span>(<span class="keyword">int</span> a,<span class="keyword">int</span> b=<span class="number">0</span>);</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">func</span>(<span class="number">10</span>,<span class="number">5</span>); </span><br><span class="line">    <span class="built_in">func</span>(<span class="number">10</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>&ensp;&ensp;&ensp;&ensp;In fact, two ways to call func functions are legal. In the first call, after <code>func(10,5);</code> is executed, parameter a = 10, parameter b =5; But in the second call, after<code>func(10);</code>is executed, parameter a = 10, parameter b =0;  </p><h2 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h2><ol><li><p>Default parameters can only be placed in function declarations or definitions, where they can be placed in declarations If the declaration exists.</p></li><li><p>If an argument is a default argument, all the arguments following it must be default arguments.</p></li><li><p>Do not overloading a function with default arguments, because call of overloaded function is ambiguous.</p></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;C-default-parameters&quot;&gt;&lt;a href=&quot;#C-default-parameters&quot; class=&quot;headerlink&quot; title=&quot;C++ default parameters&quot;&gt;&lt;/a&gt;C++ default parameters&lt;/</summary>
+      
+    
+    
+    
+    <category term="Grammar" scheme="http://example.com/categories/Grammar/"/>
+    
+    
+    <category term="C++" scheme="http://example.com/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>A diary</title>
+    <link href="http://example.com/2021/10/30/2021-10-30diary/"/>
+    <id>http://example.com/2021/10/30/2021-10-30diary/</id>
+    <published>2021-10-29T16:00:00.000Z</published>
+    <updated>2021-10-29T16:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="A-diary"><a href="#A-diary" class="headerlink" title="A diary"></a>A diary</h1><p><em>There are always a lot of ideas, but in the end I’m still waiting in the same place, never change</em></p><h2 id="About-now"><a href="#About-now" class="headerlink" title="About now"></a>About now</h2><p>&ensp;&ensp;&ensp;&ensp;Recently, I’ve been thinking a lot about my future. I have a little idea but that doesn’t determine what. I always connect the present with the future, which led me to wander in chaos. I gave up some things like math competition, becasue I think I should give it up and devote my time to more important things. In my opinion, take part in this math competition doesn’t help the future, although the postgraduate entrance exams may test relevant knowledge. But I don’t say I must choose the postgraduate, did I?<br><del>Although there are also reasons why I don’t think I have much hope of winning.</del>   </p><h2 id="About-gacha-game"><a href="#About-gacha-game" class="headerlink" title="About gacha game"></a>About gacha game</h2><p>&ensp;&ensp;&ensp;&ensp;So far, the only gacha game I still play are Arknights and Genshin Impact. although they are good games, I don’t have enough time to treat them like work. Maybe from now on, I no longer stick to daily check-in and activity tasks. Games are just games, that’s all. </p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;A-diary&quot;&gt;&lt;a href=&quot;#A-diary&quot; class=&quot;headerlink&quot; title=&quot;A diary&quot;&gt;&lt;/a&gt;A diary&lt;/h1&gt;&lt;p&gt;&lt;em&gt;There are always a lot of ideas, but in the en</summary>
+      
+    
+    
+    
+    <category term="Daily gossip" scheme="http://example.com/categories/Daily-gossip/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>A diary</title>
@@ -93,9 +139,9 @@
     <link href="http://example.com/2021/10/21/Learning%20abou%20MarkDown/"/>
     <id>http://example.com/2021/10/21/Learning%20abou%20MarkDown/</id>
     <published>2021-10-21T00:10:24.000Z</published>
-    <updated>2021-10-28T12:37:00.000Z</updated>
+    <updated>2021-10-29T16:00:00.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Study-MarkDown-Language"><a href="#Study-MarkDown-Language" class="headerlink" title="Study MarkDown Language"></a>Study MarkDown Language</h1><h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h2><pre><code>Now I am going to write down and record how I study Markdown.I will take this opportunity to publish my first blog.</code></pre><h2 id="Body"><a href="#Body" class="headerlink" title="Body"></a>Body</h2><h3 id="The-code-block-method"><a href="#The-code-block-method" class="headerlink" title="The code block method"></a>The code block method</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;hello world!&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>This program outputs from <code>cout&lt;&lt;&quot;hello world!&quot;;</code></p><h3 id="The-list-method"><a href="#The-list-method" class="headerlink" title="The list method"></a>The list method</h3><h4 id="Ordered-List"><a href="#Ordered-List" class="headerlink" title="Ordered List"></a>Ordered List</h4><ol><li>list one</li><li>list two<ol><li>list two point one</li><li>list two point two</li></ol></li><li>list three<h4 id="Unordered-List"><a href="#Unordered-List" class="headerlink" title="Unordered List"></a>Unordered List</h4></li></ol><ul><li>list one</li><li>list two<ul><li>list two point one</li></ul></li><li>list three </li></ul><h3 id="The-Bold-and-Tilt"><a href="#The-Bold-and-Tilt" class="headerlink" title="The Bold and Tilt"></a>The Bold and Tilt</h3><h4 id="Bold"><a href="#Bold" class="headerlink" title="Bold"></a>Bold</h4><p>look！the word <strong>bold</strong> is in bold.</p><h4 id="Tilt"><a href="#Tilt" class="headerlink" title="Tilt"></a>Tilt</h4><p>look！the word <em>tilt</em> is in tilt.</p><h4 id="Bold-and-Tilt"><a href="#Bold-and-Tilt" class="headerlink" title="Bold and Tilt"></a>Bold and Tilt</h4><p>look！the sentence <strong><em>hello world!</em></strong> is in bold and tilt.</p><hr><p><strong>First Update:</strong> 2021-10-27 21:14:00</p><h3 id="The-Blank-Space"><a href="#The-Blank-Space" class="headerlink" title="The Blank Space"></a>The Blank Space</h3><p>&ensp;&ensp;&ensp;&ensp;look! The paragraph was preceded by a blank.</p><hr><p><strong>Second Update:</strong> 2021-10-28 20:37:00</p><h3 id="The-Reference"><a href="#The-Reference" class="headerlink" title="The Reference"></a>The Reference</h3><h4 id="The-article-quoted"><a href="#The-article-quoted" class="headerlink" title="The article quoted"></a>The article quoted</h4><blockquote><p>look！I’m being quoted !</p><blockquote><p>So do I !</p></blockquote></blockquote><h4 id="Links-to-reference"><a href="#Links-to-reference" class="headerlink" title="Links to reference"></a>Links to reference</h4><p><a href="https://sakuraxz.github.io/">look！ Please click on the me</a></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Study-MarkDown-Language"><a href="#Study-MarkDown-Language" class="headerlink" title="Study MarkDown Language"></a>Study MarkDown Language</h1><h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h2><pre><code>Now I am going to write down and record how I study Markdown.I will take this opportunity to publish my first blog.</code></pre><h2 id="Body"><a href="#Body" class="headerlink" title="Body"></a>Body</h2><h3 id="The-code-block-method"><a href="#The-code-block-method" class="headerlink" title="The code block method"></a>The code block method</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;hello world!&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>This program outputs from <code>cout&lt;&lt;&quot;hello world!&quot;;</code></p><h3 id="The-list-method"><a href="#The-list-method" class="headerlink" title="The list method"></a>The list method</h3><h4 id="Ordered-List"><a href="#Ordered-List" class="headerlink" title="Ordered List"></a>Ordered List</h4><ol><li>list one</li><li>list two<ol><li>list two point one</li><li>list two point two</li></ol></li><li>list three<h4 id="Unordered-List"><a href="#Unordered-List" class="headerlink" title="Unordered List"></a>Unordered List</h4></li></ol><ul><li>list one</li><li>list two<ul><li>list two point one</li></ul></li><li>list three </li></ul><h3 id="The-Bold-and-Tilt"><a href="#The-Bold-and-Tilt" class="headerlink" title="The Bold and Tilt"></a>The Bold and Tilt</h3><h4 id="Bold"><a href="#Bold" class="headerlink" title="Bold"></a>Bold</h4><p>look！the word <strong>bold</strong> is in bold.</p><h4 id="Tilt"><a href="#Tilt" class="headerlink" title="Tilt"></a>Tilt</h4><p>look！the word <em>tilt</em> is in tilt.</p><h4 id="Bold-and-Tilt"><a href="#Bold-and-Tilt" class="headerlink" title="Bold and Tilt"></a>Bold and Tilt</h4><p>look！the sentence <strong><em>hello world!</em></strong> is in bold and tilt.</p><hr><p><strong>First Update:</strong> 2021-10-27 21:14:00</p><h3 id="The-Blank-Space"><a href="#The-Blank-Space" class="headerlink" title="The Blank Space"></a>The Blank Space</h3><p>&ensp;&ensp;&ensp;&ensp;look! The paragraph was preceded by a blank.</p><hr><p><strong>Second Update:</strong> 2021-10-28 20:37:00</p><h3 id="The-Reference"><a href="#The-Reference" class="headerlink" title="The Reference"></a>The Reference</h3><h4 id="The-article-quoted"><a href="#The-article-quoted" class="headerlink" title="The article quoted"></a>The article quoted</h4><blockquote><p>look! I’m being quoted!</p><blockquote><p>So do I !</p></blockquote></blockquote><h4 id="Links-to-reference"><a href="#Links-to-reference" class="headerlink" title="Links to reference"></a>Links to reference</h4><p><a href="https://sakuraxz.github.io/">look！ Please click on the me</a></p><hr><p><strong>Third Update:</strong> 2021-10-30 20:47:00</p><h3 id="The-Strikethrough"><a href="#The-Strikethrough" class="headerlink" title="The Strikethrough"></a>The Strikethrough</h3><p><del>look! I’m being deleted!</del></p>]]></content>
     
     
       
