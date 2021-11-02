@@ -181,10 +181,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-11-01 20:26:24 / 修改时间：23:26:19" itemprop="dateCreated datePublished" datetime="2021-11-01T20:26:24+08:00">2021-11-01</time>
+              <time title="创建时间：2021-11-01 20:26:24" itemprop="dateCreated datePublished" datetime="2021-11-01T20:26:24+08:00">2021-11-01</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-02 09:25:41" itemprop="dateModified" datetime="2021-11-02T09:25:41+08:00">2021-11-02</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -216,6 +222,8 @@
 <li><p>If an argument is a default argument, all the arguments following it must be default arguments.</p>
 </li>
 <li><p>Do not overloading a function with default arguments, because call of overloaded function is ambiguous.</p>
+</li>
+<li><p>Default values can be global variables, global constants, or even a function. But it cannot be a local variable. Because the invocation of default parameters is determined at compile time, local variable positions and default values are not determined at compile time.</p>
 </li>
 </ol>
 
