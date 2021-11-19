@@ -20,29 +20,33 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="SakuraXz">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="Red Black Tree Data_Structure Templatereference: RBT implementation&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;RBT in Linux OS 123456789101112131415161718192021222324252627282930313233">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Red Black Tree(RBT)">
+<meta property="og:url" content="http://example.com/2021/11/19/red-black-tree/index.html">
 <meta property="og:site_name" content="SakuraXz">
+<meta property="og:description" content="Red Black Tree Data_Structure Templatereference: RBT implementation&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;RBT in Linux OS 123456789101112131415161718192021222324252627282930313233">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-11-19T09:07:56.000Z">
+<meta property="article:modified_time" content="2021-11-19T09:21:45.893Z">
 <meta property="article:author" content="sakuraxz">
-<meta property="article:tag" content="c++">
+<meta property="article:tag" content="RBT">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2021/11/19/red-black-tree/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>SakuraXz</title>
+  <title>Red Black Tree(RBT) | SakuraXz</title>
   
 
 
@@ -152,9 +156,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -170,10 +175,9 @@
       <meta itemprop="name" content="SakuraXz">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/19/red-black-tree/" class="post-title-link" itemprop="url">Red Black Tree(RBT)</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Red Black Tree(RBT)
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -206,657 +210,43 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Red-Black-Tree-Data-Structure-Template"><a href="#Red-Black-Tree-Data-Structure-Template" class="headerlink" title="Red Black Tree Data_Structure Template"></a>Red Black Tree Data_Structure Template</h1><p>reference: <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/348814281">RBT implementation</a><br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/428577184">RBT in Linux OS</a></p>
+        <h1 id="Red-Black-Tree-Data-Structure-Template"><a href="#Red-Black-Tree-Data-Structure-Template" class="headerlink" title="Red Black Tree Data_Structure Template"></a>Red Black Tree Data_Structure Template</h1><p>reference: <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/348814281">RBT implementation</a><br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/428577184">RBT in Linux OS</a></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cassert&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">enum</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    RED = <span class="number">0</span>,</span><br><span class="line">    BLACK</span><br><span class="line">&#125; Color;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Type&gt; <span class="comment">// This use the Type to expand the code</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">RBTNode</span> // <span class="title">the</span> <span class="title">RBT</span>&#x27;<span class="title">s</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    Color color;</span><br><span class="line">    Type key;</span><br><span class="line">    RBTNode *left, *right, *parent;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Type&gt;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RBTree</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">RBTree</span>()</span><br><span class="line">    &#123;</span><br><span class="line">        Nil = <span class="built_in">BuyNode</span>();</span><br><span class="line">        root = Nil;</span><br><span class="line">        Nil-&gt;color = BLACK;</span><br><span class="line">    &#125;</span><br><span class="line">    ~<span class="built_in">RBTree</span>()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">destroy</span>(root);</span><br><span class="line">        <span class="keyword">delete</span> Nil;</span><br><span class="line">        Nil = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Open a public interface by overloaded methods， lt’s wonderful.</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">InOrder</span><span class="params">()</span> </span>&#123; <span class="built_in">InOrder</span>(root); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        For Insert operation</span></span><br><span class="line"><span class="comment">        1. Insert the value by the traditional BST method</span></span><br><span class="line"><span class="comment">        2. Call the adjustment operation</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">Insert</span><span class="params">(<span class="keyword">const</span> Type &amp;value)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        RBTNode&lt;Type&gt; *pr = Nil; <span class="comment">// pr is used to remember the father_node</span></span><br><span class="line">        RBTNode&lt;Type&gt; *s = root; <span class="comment">// s points to the root</span></span><br><span class="line">        <span class="keyword">while</span> (s != Nil)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (value == s-&gt;key)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            pr = s; <span class="comment">//每次记住s的父节点</span></span><br><span class="line">            <span class="keyword">if</span> (value &lt; s-&gt;key)</span><br><span class="line">            &#123;</span><br><span class="line">                s = s-&gt;left;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                s = s-&gt;right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// this moment, the s is equal to Nil</span></span><br><span class="line">        s = <span class="built_in">BuyNode</span>(value);</span><br><span class="line">        <span class="keyword">if</span> (pr == Nil) <span class="comment">// this state describes the RBT is empty</span></span><br><span class="line">        &#123;</span><br><span class="line">            root = s;</span><br><span class="line">            root-&gt;parent = pr;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (value &lt; pr-&gt;key)</span><br><span class="line">            &#123;</span><br><span class="line">                pr-&gt;left = s;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                pr-&gt;right = s;</span><br><span class="line">            &#125;</span><br><span class="line">            s-&gt;parent = pr;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">Insert_Fixup</span>(s);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        For Remove operation</span></span><br><span class="line"><span class="comment">        1. use the Search function to find the position of the key</span></span><br><span class="line"><span class="comment">        2. Call internal Remove</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Remove</span><span class="params">(Type key)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        RBTNode&lt;Type&gt; *t;</span><br><span class="line">        <span class="keyword">if</span> ((t = <span class="built_in">Search</span>(root, key)) != Nil)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">Remove</span>(t);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;Key is not exist.&quot;</span> &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// the print uses the InOrder traversal</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">InOrderPrint</span><span class="params">()</span> </span>&#123; <span class="built_in">InOrderPrint</span>(root); &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="comment">// BuyNode is used to applt for a node</span></span><br><span class="line">    <span class="function">RBTNode&lt;Type&gt; *<span class="title">BuyNode</span><span class="params">(<span class="keyword">const</span> Type &amp;x = Type())</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        RBTNode&lt;Type&gt; *s = <span class="keyword">new</span> RBTNode&lt;Type&gt;();</span><br><span class="line">        <span class="built_in">assert</span>(s != <span class="literal">NULL</span>);</span><br><span class="line">        s-&gt;color = RED;</span><br><span class="line">        s-&gt;left = s-&gt;right = s-&gt;parent = Nil;</span><br><span class="line">        s-&gt;key = x;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">InOrder</span><span class="params">(RBTNode&lt;Type&gt; *root)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root != Nil)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">InOrder</span>(root-&gt;left);</span><br><span class="line">            cout &lt;&lt; root-&gt;key &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">            <span class="built_in">InOrder</span>(root-&gt;right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">LeftRotate</span><span class="params">(RBTNode&lt;Type&gt; *z)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        RBTNode&lt;Type&gt; *y = z-&gt;right; <span class="comment">// y points to the targat node that is going to be rotated.</span></span><br><span class="line">        z-&gt;right = y-&gt;left;</span><br><span class="line">        <span class="keyword">if</span> (y-&gt;left != Nil)</span><br><span class="line">        &#123;</span><br><span class="line">            y-&gt;left-&gt;parent = z;</span><br><span class="line">        &#125;</span><br><span class="line">        y-&gt;parent = z-&gt;parent;</span><br><span class="line">        <span class="keyword">if</span> (root == z) <span class="comment">// z is the root node</span></span><br><span class="line">        &#123;</span><br><span class="line">            root = y;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (z == z-&gt;parent-&gt;left) <span class="comment">// z is the left node of the father node</span></span><br><span class="line">        &#123;</span><br><span class="line">            z-&gt;parent-&gt;left = y;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="comment">// z is the right node of the father node</span></span><br><span class="line">        &#123;</span><br><span class="line">            z-&gt;parent-&gt;right = y;</span><br><span class="line">        &#125;</span><br><span class="line">        y-&gt;left = z;</span><br><span class="line">        z-&gt;parent = y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">RightRotate</span><span class="params">(RBTNode&lt;Type&gt; *z)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        RBTNode&lt;Type&gt; *y = z-&gt;left; <span class="comment">// y points to the targat node that is going to be rotated.</span></span><br><span class="line">        z-&gt;left = y-&gt;right;</span><br><span class="line">        <span class="keyword">if</span> (y-&gt;right != Nil)</span><br><span class="line">        &#123;</span><br><span class="line">            y-&gt;right-&gt;parent = z;</span><br><span class="line">        &#125;</span><br><span class="line">        y-&gt;parent = z-&gt;parent;</span><br><span class="line">        <span class="keyword">if</span> (root == z) <span class="comment">// z is the root node</span></span><br><span class="line">        &#123;</span><br><span class="line">            root = y;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (z == z-&gt;parent-&gt;left) <span class="comment">// z is the left node of the father node</span></span><br><span class="line">        &#123;</span><br><span class="line">            z-&gt;parent-&gt;left = y;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="comment">// z is the right node of the father node</span></span><br><span class="line">        &#123;</span><br><span class="line">            z-&gt;parent-&gt;right = y;</span><br><span class="line">        &#125;</span><br><span class="line">        y-&gt;right = z;</span><br><span class="line">        z-&gt;parent = y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Insert_Fixup</span><span class="params">(RBTNode&lt;Type&gt; *s)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        RBTNode&lt;Type&gt; *uncle;           <span class="comment">// the uncle node（the father node&#x27;s brother node）</span></span><br><span class="line">        <span class="keyword">while</span> (s-&gt;parent-&gt;color == RED) <span class="comment">// the father node&#x27;s color is red</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (s-&gt;parent == s-&gt;parent-&gt;parent-&gt;left) <span class="comment">// the father node is the left node of its father node</span></span><br><span class="line">            &#123;</span><br><span class="line">                uncle = s-&gt;parent-&gt;parent-&gt;right;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (uncle-&gt;color == RED) <span class="comment">// the uncle node is red</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="comment">// The parent and uncle nodes become black</span></span><br><span class="line">                    s-&gt;parent-&gt;color = BLACK;</span><br><span class="line">                    uncle-&gt;color = BLACK;</span><br><span class="line">                    <span class="comment">// THe grandpa node become red</span></span><br><span class="line">                    s-&gt;parent-&gt;parent-&gt;color = RED;</span><br><span class="line">                    <span class="comment">// The s pointer points to the grandfather,</span></span><br><span class="line">                    <span class="comment">// and the next loop continues to determine whether the grandfather&#x27;s parent is red</span></span><br><span class="line">                    s = s-&gt;parent-&gt;parent;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="comment">// There is no uncle node, or uncle node is black (uncle node may be black after many operations)</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (s == s-&gt;parent-&gt;right) <span class="comment">// s is the right node                   &#123;</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        s = s-&gt;parent; <span class="comment">// the purpose to ensure that s and s&#x27;father have the same direction</span></span><br><span class="line">                        <span class="built_in">LeftRotate</span>(s); <span class="comment">// at this time , the s node becomes the primary s node&#x27;s father</span></span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="comment">// s is the left node</span></span><br><span class="line">                    <span class="comment">// father node becomes black，grandpa node becomes red</span></span><br><span class="line">                    s-&gt;parent-&gt;color = BLACK;</span><br><span class="line">                    s-&gt;parent-&gt;parent-&gt;color = RED;</span><br><span class="line">                    <span class="built_in">RightRotate</span>(s-&gt;parent-&gt;parent);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (s-&gt;parent == s-&gt;parent-&gt;parent-&gt;right) <span class="comment">// the father node is the right node of its father node</span></span><br><span class="line">                &#123;</span><br><span class="line">                    uncle = s-&gt;parent-&gt;parent-&gt;left;</span><br><span class="line">                    <span class="keyword">if</span> (uncle-&gt;color == RED) <span class="comment">// the uncle node is red</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="comment">// The parent and uncle nodes become black</span></span><br><span class="line">                        s-&gt;parent-&gt;color = BLACK;</span><br><span class="line">                        uncle-&gt;color = BLACK;</span><br><span class="line">                        <span class="comment">// THe grandpa node become red</span></span><br><span class="line">                        s-&gt;parent-&gt;parent-&gt;color = RED;</span><br><span class="line">                        <span class="comment">// The s pointer points to the grandfather,</span></span><br><span class="line">                        <span class="comment">// and the next loop continues to determine whether the grandfather&#x27;s parent is red</span></span><br><span class="line">                        s = s-&gt;parent-&gt;parent;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> <span class="comment">// There is no uncle node, or uncle node is black (uncle node may be black after many operations)</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="keyword">if</span> (s == s-&gt;parent-&gt;left) <span class="comment">// s is the left node</span></span><br><span class="line">                        &#123;</span><br><span class="line">                            s = s-&gt;parent;  <span class="comment">// the purpose to ensure that s and s&#x27;father have the same direction</span></span><br><span class="line">                            <span class="built_in">RightRotate</span>(s); <span class="comment">// at this time , the s node becomes the primary s node&#x27;s father</span></span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="comment">// s is the left node</span></span><br><span class="line">                        <span class="comment">// father node becomes black，grandpa node becomes red</span></span><br><span class="line">                        s-&gt;parent-&gt;color = BLACK;</span><br><span class="line">                        s-&gt;parent-&gt;parent-&gt;color = RED;</span><br><span class="line">                        <span class="built_in">LeftRotate</span>(s-&gt;parent-&gt;parent);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        root-&gt;color = BLACK; <span class="comment">// Finally, always set the root node to black</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//search the node with key</span></span><br><span class="line">    <span class="function">RBTNode&lt;Type&gt; *<span class="title">Search</span><span class="params">(RBTNode&lt;Type&gt; *root, Type key)</span> <span class="keyword">const</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == Nil)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> Nil;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (root-&gt;key == key)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (key &lt; root-&gt;key)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">Search</span>(root-&gt;left, key);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">Search</span>(root-&gt;right, key);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// the replace operation</span></span><br><span class="line">    <span class="comment">// Only the relationship between V and U&#x27;s father is established</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Transplant</span><span class="params">(RBTNode&lt;Type&gt; *u, RBTNode&lt;Type&gt; *v)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (u-&gt;parent == Nil) <span class="comment">// u is the root node</span></span><br><span class="line">        &#123;</span><br><span class="line">            root = v;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (u == u-&gt;parent-&gt;left) <span class="comment">// u is the left node</span></span><br><span class="line">        &#123;</span><br><span class="line">            u-&gt;parent-&gt;left = v;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="comment">// u is the right node</span></span><br><span class="line">        &#123;</span><br><span class="line">            u-&gt;parent-&gt;right = v;</span><br><span class="line">        &#125;</span><br><span class="line">        v-&gt;parent = u-&gt;parent; <span class="comment">//只建立了v和u父亲的关系</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Search the smallest number but greater than x&#x27;father node.</span></span><br><span class="line">    <span class="function">RBTNode&lt;Type&gt; *<span class="title">Minimum</span><span class="params">(RBTNode&lt;Type&gt; *x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x-&gt;left == Nil)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> x;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Minimum</span>(x-&gt;left);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Remove the z node.</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Remove</span><span class="params">(RBTNode&lt;Type&gt; *z)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        RBTNode&lt;Type&gt; *x = Nil;</span><br><span class="line">        RBTNode&lt;Type&gt; *y = z;</span><br><span class="line">        Color ycolor = y-&gt;color;</span><br><span class="line">        <span class="keyword">if</span> (z-&gt;left == Nil) <span class="comment">// Z has only the right node</span></span><br><span class="line">        &#123;</span><br><span class="line">            x = z-&gt;right;</span><br><span class="line">            <span class="built_in">Transplant</span>(z, z-&gt;right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (z-&gt;right == Nil) <span class="comment">// Z has only the ledt node</span></span><br><span class="line">        &#123;</span><br><span class="line">            x = z-&gt;left;</span><br><span class="line">            <span class="built_in">Transplant</span>(z, z-&gt;left);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="comment">// Z has the left and right node , so the y mustn&#x27;t be Nil</span></span><br><span class="line">        &#123;</span><br><span class="line">            y = <span class="built_in">Minimum</span>(z-&gt;right); <span class="comment">// y is the next z in logic</span></span><br><span class="line">            ycolor = y-&gt;color;</span><br><span class="line">            x = y-&gt;right;</span><br><span class="line">            <span class="keyword">if</span> (y-&gt;parent == z)</span><br><span class="line">            &#123;</span><br><span class="line">                x-&gt;parent = y;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">Transplant</span>(y, y-&gt;right);</span><br><span class="line">                y-&gt;right = z-&gt;right;</span><br><span class="line">                y-&gt;right-&gt;parent = y;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">Transplant</span>(z, y);</span><br><span class="line">            y-&gt;left = z-&gt;left;</span><br><span class="line">            z-&gt;left-&gt;parent = y;</span><br><span class="line">            y-&gt;color = z-&gt;color;</span><br><span class="line">            <span class="comment">// In fact, at this time, the delete node becomes y node instead of z node.</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (ycolor == BLACK)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">Remove_Fixup</span>(x);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">delete</span> z;</span><br><span class="line">        z = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Remove_Fixup</span><span class="params">(RBTNode&lt;Type&gt; *x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (x != root &amp;&amp; x-&gt;color == BLACK)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (x == x-&gt;parent-&gt;left) <span class="comment">// x is the left node</span></span><br><span class="line">            &#123;</span><br><span class="line">                RBTNode&lt;Type&gt; *w = x-&gt;parent-&gt;right; <span class="comment">// w is the x&#x27;s brother node</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (w-&gt;color == RED) <span class="comment">// Situation 1</span></span><br><span class="line">                &#123;</span><br><span class="line">                    w-&gt;color = BLACK;</span><br><span class="line">                    x-&gt;parent-&gt;color = RED;</span><br><span class="line">                    <span class="built_in">LeftRotate</span>(x-&gt;parent);</span><br><span class="line">                    w = x-&gt;parent-&gt;right;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (w-&gt;left-&gt;color == BLACK &amp;&amp; w-&gt;right-&gt;color == BLACK) <span class="comment">// Situation 2</span></span><br><span class="line">                &#123;</span><br><span class="line">                    w-&gt;color = RED;</span><br><span class="line">                    x = x-&gt;parent;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (w-&gt;right-&gt;color == BLACK) <span class="comment">// Situation 3</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        w-&gt;color = RED;</span><br><span class="line">                        w-&gt;left-&gt;color = BLACK;</span><br><span class="line">                        <span class="built_in">RightRotate</span>(w);</span><br><span class="line">                        w = x-&gt;parent-&gt;right;</span><br><span class="line">                        <span class="comment">// Set the x&#x27;s brother node&#x27;s right node become red, then jump into Situation 4</span></span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="comment">//  Situation 4</span></span><br><span class="line">                    w-&gt;color = w-&gt;parent-&gt;color;</span><br><span class="line">                    w-&gt;parent-&gt;color = BLACK;</span><br><span class="line">                    w-&gt;right-&gt;color = BLACK;</span><br><span class="line">                    <span class="built_in">LeftRotate</span>(x-&gt;parent);</span><br><span class="line">                    x = root; <span class="comment">// End of loop</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="comment">// x is the right node</span></span><br><span class="line">            &#123;</span><br><span class="line">                RBTNode&lt;Type&gt; *w = x-&gt;parent-&gt;left;</span><br><span class="line">                <span class="keyword">if</span> (w-&gt;color == RED) <span class="comment">// Situation 5</span></span><br><span class="line">                &#123;</span><br><span class="line">                    w-&gt;parent-&gt;color = RED;</span><br><span class="line">                    w-&gt;color = BLACK;</span><br><span class="line">                    <span class="built_in">RightRotate</span>(x-&gt;parent);</span><br><span class="line">                    w = x-&gt;parent-&gt;left;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (w-&gt;left-&gt;color == BLACK &amp;&amp; w-&gt;right-&gt;color == BLACK) <span class="comment">// Situation 6</span></span><br><span class="line">                &#123;</span><br><span class="line">                    w-&gt;color = RED;</span><br><span class="line">                    x = x-&gt;parent;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (w-&gt;left-&gt;color == BLACK) <span class="comment">// Situation 7</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        w-&gt;right-&gt;color = BLACK;</span><br><span class="line">                        w-&gt;color = RED;</span><br><span class="line">                        <span class="built_in">LeftRotate</span>(w);</span><br><span class="line">                        w = x-&gt;parent-&gt;left;</span><br><span class="line">                        <span class="comment">// Set the x&#x27;s brother node&#x27;s right node become red, then jump into Situation 8</span></span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="comment">// Situation 8</span></span><br><span class="line">                    w-&gt;color = x-&gt;parent-&gt;color;</span><br><span class="line">                    x-&gt;parent-&gt;color = BLACK;</span><br><span class="line">                    w-&gt;left-&gt;color = BLACK;</span><br><span class="line">                    <span class="built_in">RightRotate</span>(x-&gt;parent);</span><br><span class="line">                    x = root; <span class="comment">// End of loop</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        x-&gt;color = BLACK;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">destroy</span><span class="params">(RBTNode&lt;Type&gt; *&amp;root)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == Nil)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;left != Nil)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">destroy</span>(root-&gt;left);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;right != Nil)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">destroy</span>(root-&gt;right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">delete</span> root;</span><br><span class="line">        root = <span class="literal">NULL</span>; <span class="comment">// this is necessary, otherwise, root becomes a wild pointer.</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">InOrderPrint</span><span class="params">(RBTNode&lt;Type&gt; *node)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (node == Nil)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (node-&gt;left != <span class="literal">NULL</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">InOrderPrint</span>(node-&gt;left);</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; node-&gt;key &lt;&lt; <span class="string">&quot;(&quot;</span> &lt;&lt; ((node-&gt;color == BLACK) ? <span class="string">&quot;BLACK&quot;</span> : <span class="string">&quot;RED&quot;</span>) &lt;&lt; <span class="string">&quot;)&quot;</span></span><br><span class="line">             &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        <span class="keyword">if</span> (node-&gt;right != Nil)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">InOrderPrint</span>(node-&gt;right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    RBTNode&lt;Type&gt; *root; <span class="comment">// root is root_node</span></span><br><span class="line">    RBTNode&lt;Type&gt; *Nil;  <span class="comment">// Nil is the blank_node, it facilitates initialization</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//test sample </span></span><br><span class="line">    RBTree&lt;<span class="keyword">int</span>&gt; rb;</span><br><span class="line">    <span class="keyword">int</span> arr[] = &#123;<span class="number">10</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">15</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">11</span>, <span class="number">13</span>, <span class="number">12</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="built_in"><span class="keyword">sizeof</span></span>(arr) / <span class="built_in"><span class="keyword">sizeof</span></span>(<span class="keyword">int</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        rb.<span class="built_in">Insert</span>(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    rb.<span class="built_in">InOrder</span>();</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    rb.<span class="built_in">InOrderPrint</span>();</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    rb.<span class="built_in">Remove</span>(<span class="number">10</span>);</span><br><span class="line">    rb.<span class="built_in">InOrder</span>();</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    rb.<span class="built_in">Remove</span>(<span class="number">21</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/RBT/" rel="tag"># RBT</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/04/splay/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/%E5%B0%8F%E7%86%8A.jpg">
-      <meta itemprop="name" content="sakuraxz">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SakuraXz">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/04/splay/" class="post-title-link" itemprop="url">Splay Data_Structure Template</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-11-04 21:36:29 / 修改时间：00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-04T21:36:29+08:00">2021-11-04</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Data-Structure/" itemprop="url" rel="index"><span itemprop="name">Data_Structure</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Splay-Data-Structure-Template"><a href="#Splay-Data-Structure-Template" class="headerlink" title="Splay Data_Structure Template"></a>Splay Data_Structure Template</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> val, father, ch[<span class="number">2</span>], size, cnt;</span><br><span class="line">    <span class="built_in">Node</span>(<span class="keyword">int</span> val = <span class="number">0</span>, <span class="keyword">int</span> father = <span class="number">0</span>, <span class="keyword">int</span> size = <span class="number">0</span>, <span class="keyword">int</span> cnt = <span class="number">0</span>) : <span class="built_in">val</span>(val), <span class="built_in">father</span>(father), <span class="built_in">size</span>(size), <span class="built_in">cnt</span>(cnt) <span class="comment">// Initialize the node</span></span><br><span class="line">    &#123;</span><br><span class="line">        ch[<span class="number">0</span>] = ch[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Splay</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">static</span> <span class="keyword">int</span> MAXN = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line">    Node node[MAXN];</span><br><span class="line">    <span class="keyword">int</span> root = <span class="number">0</span>, cnt = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">pushup</span><span class="params">(<span class="keyword">int</span> p)</span> <span class="comment">// Maintain the value of size</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        node[p].size = node[node[p].ch[<span class="number">0</span>]].size + node[p].cnt + node[node[p].ch[<span class="number">1</span>]].size;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span> p)</span> <span class="comment">// Query the relationship between p and its father</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> node[node[p].father].ch[<span class="number">0</span>] == p ? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">connect</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> f, <span class="keyword">int</span> d)</span> <span class="comment">// Build the edge</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        node[f].ch[d] = x;</span><br><span class="line">        node[x].father = f;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">rotate</span><span class="params">(<span class="keyword">int</span> x)</span></span>;              <span class="comment">// One of the core</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">splay</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> dist = <span class="number">0</span>)</span></span>; <span class="comment">// One of the core</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Splay</span>()<span class="comment">//Insert two tags to avoid missing the precursor and successor and splay is empty etc.</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">insert</span>(__INT_MAX__);</span><br><span class="line">        <span class="built_in">insert</span>(-__INT_MAX__);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> x)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">serial</span><span class="params">(<span class="keyword">int</span> x)</span><span class="comment">//Remember to consider the presence of flags</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">find</span>(x);</span><br><span class="line">        <span class="keyword">return</span> node[node[root].ch[<span class="number">0</span>]].size;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">pre</span><span class="params">(<span class="keyword">int</span> x)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">suc</span><span class="params">(<span class="keyword">int</span> x)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">int</span> x)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">rank</span><span class="params">(<span class="keyword">int</span> k)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Splay splay;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Splay::rotate</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> y = node[x].father, z = node[y].father, d = <span class="built_in">check</span>(x), w = node[x].ch[d ^ <span class="number">1</span>];</span><br><span class="line">    <span class="built_in">connect</span>(w, y, d);</span><br><span class="line">    <span class="built_in">connect</span>(x, z, <span class="built_in">check</span>(y));</span><br><span class="line">    <span class="built_in">connect</span>(y, x, d ^ <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">pushup</span>(y);</span><br><span class="line">    <span class="built_in">pushup</span>(x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Splay::splay</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> dist)</span> <span class="comment">//The use of a double rotate operation</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> f = node[x].father; f = node[x].father, f != dist; <span class="built_in">rotate</span>(x))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (node[f].father != dist)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">check</span>(x) == <span class="built_in">check</span>(f))</span><br><span class="line">                <span class="built_in">rotate</span>(f);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">rotate</span>(x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (dist == <span class="number">0</span>)</span><br><span class="line">        root = x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Splay::find</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cur = root;</span><br><span class="line">    <span class="keyword">while</span> (node[cur].ch[x &gt; node[cur].val] != <span class="number">0</span> &amp;&amp; x != node[cur].val)</span><br><span class="line">        cur = node[cur].ch[x &gt; node[cur].val];</span><br><span class="line">    <span class="built_in">splay</span>(cur);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Splay::insert</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cur = root, p = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (cur != <span class="number">0</span> &amp;&amp; node[cur].val != x)</span><br><span class="line">    &#123;</span><br><span class="line">        p = cur;</span><br><span class="line">        cur = node[cur].ch[x &gt; node[cur].val];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (cur != <span class="number">0</span>)</span><br><span class="line">        node[cur].cnt++;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        cur = ++cnt;</span><br><span class="line">        <span class="keyword">if</span> (p != <span class="number">0</span>)</span><br><span class="line">            node[p].ch[x &gt; node[p].val] = cur;</span><br><span class="line">        node[cur] = <span class="built_in">Node</span>(x, p, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">splay</span>(cur);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Splay::pre</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">find</span>(x);</span><br><span class="line">    <span class="keyword">if</span> (node[root].val &lt; x)</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    <span class="keyword">int</span> cur = node[root].ch[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">while</span> (node[cur].ch[<span class="number">1</span>] != <span class="number">0</span>)</span><br><span class="line">        cur = node[cur].ch[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">return</span> cur;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Splay::suc</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">find</span>(x);</span><br><span class="line">    <span class="keyword">if</span> (node[root].val &gt; x)</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    <span class="keyword">int</span> cur = node[root].ch[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">while</span> (node[cur].ch[<span class="number">0</span>] != <span class="number">0</span>)</span><br><span class="line">        cur = node[cur].ch[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">return</span> cur;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Splay::remove</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> last = <span class="built_in">pre</span>(x), next = <span class="built_in">suc</span>(x);</span><br><span class="line">    <span class="built_in">splay</span>(last);</span><br><span class="line">    <span class="built_in">splay</span>(next, last);</span><br><span class="line">    <span class="keyword">int</span> rm = node[next].ch[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">if</span> (node[rm].cnt &gt; <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        --node[rm].cnt;</span><br><span class="line">        <span class="built_in">splay</span>(rm);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        node[next].ch[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">pushup</span>(next);</span><br><span class="line">        <span class="built_in">pushup</span>(root);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Splay::rank</span><span class="params">(<span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cur = root;</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (k &lt;= node[node[cur].ch[<span class="number">0</span>]].size)</span><br><span class="line">            cur = node[cur].ch[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (k &gt; node[node[cur].ch[<span class="number">0</span>]].size + node[cur].cnt)</span><br><span class="line">        &#123;</span><br><span class="line">            k -= node[node[cur].ch[<span class="number">0</span>]].size + node[cur].cnt;</span><br><span class="line">            cur = node[cur].ch[<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> cur;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/11/04/splay/" rel="prev" title="Splay Data_Structure Template">
+      <i class="fa fa-chevron-left"></i> Splay Data_Structure Template
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/01/The-default-parameters/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/%E5%B0%8F%E7%86%8A.jpg">
-      <meta itemprop="name" content="sakuraxz">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SakuraXz">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/01/The-default-parameters/" class="post-title-link" itemprop="url">The Default Parameters</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-11-01 20:26:24" itemprop="dateCreated datePublished" datetime="2021-11-01T20:26:24+08:00">2021-11-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-11-02 09:25:41" itemprop="dateModified" datetime="2021-11-02T09:25:41+08:00">2021-11-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Grammar/" itemprop="url" rel="index"><span itemprop="name">Grammar</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="C-default-parameters"><a href="#C-default-parameters" class="headerlink" title="C++ default parameters"></a>C++ default parameters</h1><h2 id="Perface"><a href="#Perface" class="headerlink" title="Perface:"></a>Perface:</h2><p>&ensp;&ensp;&ensp;&ensp;In C++, we can specify default values for parameters. </p>
-<p>&ensp;&ensp;&ensp;&ensp;Default parameter are automatically used when a function call does not specify an argument corresponding to the parameter.<br><em>parameter = formal parameter, argument= actual parameter.</em></p>
-<h2 id="The-sample"><a href="#The-sample" class="headerlink" title="The sample:"></a>The sample:</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">func</span>(<span class="keyword">int</span> a,<span class="keyword">int</span> b=<span class="number">0</span>);</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">func</span>(<span class="number">10</span>,<span class="number">5</span>); </span><br><span class="line">    <span class="built_in">func</span>(<span class="number">10</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>&ensp;&ensp;&ensp;&ensp;In fact, two ways to call func functions are legal. In the first call, after <code>func(10,5);</code> is executed, parameter a = 10, parameter b =5; But in the second call, after<code>func(10);</code>is executed, parameter a = 10, parameter b =0;  </p>
-<h2 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h2><ol>
-<li><p>Default parameters can only be placed in function declarations or definitions, where they can be placed in declarations If the declaration exists.</p>
-</li>
-<li><p>If an argument is a default argument, all the arguments following it must be default arguments.</p>
-</li>
-<li><p>Do not overloading a function with default arguments, because call of overloaded function is ambiguous.</p>
-</li>
-<li><p>Default values can be global variables, global constants, or even a function. But it cannot be a local variable. Because the invocation of default parameters is determined at compile time, local variable positions and default values are not determined at compile time.</p>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/30/2021-10-30diary/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/%E5%B0%8F%E7%86%8A.jpg">
-      <meta itemprop="name" content="sakuraxz">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SakuraXz">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/30/2021-10-30diary/" class="post-title-link" itemprop="url">A diary</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-10-30 00:00:00" itemprop="dateCreated datePublished" datetime="2021-10-30T00:00:00+08:00">2021-10-30</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Daily-gossip/" itemprop="url" rel="index"><span itemprop="name">Daily gossip</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="A-diary"><a href="#A-diary" class="headerlink" title="A diary"></a>A diary</h1><p><em>There are always a lot of ideas, but in the end I’m still waiting in the same place, never change</em></p>
-<h2 id="About-now"><a href="#About-now" class="headerlink" title="About now"></a>About now</h2><p>&ensp;&ensp;&ensp;&ensp;Recently, I’ve been thinking a lot about my future. I have a little idea but that doesn’t determine what. I always connect the present with the future, which led me to wander in chaos. I gave up some things like math competition, becasue I think I should give it up and devote my time to more important things. In my opinion, take part in this math competition doesn’t help the future, although the postgraduate entrance exams may test relevant knowledge. But I don’t say I must choose the postgraduate, did I?<br><del>Although there are also reasons why I don’t think I have much hope of winning.</del>   </p>
-<h2 id="About-gacha-game"><a href="#About-gacha-game" class="headerlink" title="About gacha game"></a>About gacha game</h2><p>&ensp;&ensp;&ensp;&ensp;So far, the only gacha game I still play are Arknights and Genshin Impact. although they are good games, I don’t have enough time to treat them like work. Maybe from now on, I no longer stick to daily check-in and activity tasks. Games are just games, that’s all. </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/28/2021-10-28diary/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/%E5%B0%8F%E7%86%8A.jpg">
-      <meta itemprop="name" content="sakuraxz">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SakuraXz">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/28/2021-10-28diary/" class="post-title-link" itemprop="url">A diary</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-10-28 20:01:35 / 修改时间：20:29:00" itemprop="dateCreated datePublished" datetime="2021-10-28T20:01:35+08:00">2021-10-28</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Daily-gossip/" itemprop="url" rel="index"><span itemprop="name">Daily gossip</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="A-diary"><a href="#A-diary" class="headerlink" title="A diary"></a>A diary</h1><p><strong><em>An ordinary day where nothing seems to impress me.</em></strong></p>
-<h2 id="String-constant-definition-for-assembly-language"><a href="#String-constant-definition-for-assembly-language" class="headerlink" title="String constant definition for assembly language"></a>String constant definition for assembly language</h2><p>&ensp;&ensp;&ensp;&ensp;Even though it says string definitions can only be defined in “byte”, Mr.Qiu says that string size more than four can only use byte. In other words, “ wvar WORD ‘89’ “ this definition is allowed.</p>
-<h2 id="Multiple-processes-under-different-operating-systems"><a href="#Multiple-processes-under-different-operating-systems" class="headerlink" title="Multiple processes under different operating systems"></a>Multiple processes under different operating systems</h2><p>&ensp;&ensp;&ensp;&ensp;The following words are transcribed and adapted:</p>
-<blockquote>
-<p>&ensp;&ensp;&ensp;&ensp;An experiment is to create a process that writes some data to memory, then reads the data, and then exits. This process is repeated 1000 times, which is equivalent to creating/destroying the process 1000 times. The test results on my machine are:<br>&ensp;&ensp;&ensp;&ensp;<strong>Time consuming:</strong><br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;UbuntuLinux: 0.8 seconds<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Windows7: 79.8 seconds<br>&ensp;&ensp;&ensp;&ensp;The cost difference is about a hundred times.<br>&ensp;&ensp;&ensp;&ensp;This shows that the time consumption of multiple processes varies greatly under different operating systems.<br>&ensp;&ensp;&ensp;&ensp;In fact, there are two typical examples of mass creation processes. One is the GNU AutoTools tool chain, which is used to compile a lot of open source code. They compile very slowly under Windows, so software developers are best to avoid Windows. The other is the server. Some server frameworks rely on creating a large number of processes, or even one for each user request, and these servers run poorly under Windows. This is probably why there are so many more Linux servers than Windows servers around the world.</p>
-</blockquote>
-<p>reference: <a target="_blank" rel="noopener" href="https://www.cnblogs.com/yuanjili666/p/12155259.html">Multiple processes article</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/28/huffman_tree%20algorithm%20Template/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/%E5%B0%8F%E7%86%8A.jpg">
-      <meta itemprop="name" content="sakuraxz">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SakuraXz">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/28/huffman_tree%20algorithm%20Template/" class="post-title-link" itemprop="url">Huffman_Tree Algorithm Template</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-10-28 19:35:00 / 修改时间：20:47:03" itemprop="dateCreated datePublished" datetime="2021-10-28T19:35:00+08:00">2021-10-28</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Huffman-Tree-Algorithm-Template"><a href="#Huffman-Tree-Algorithm-Template" class="headerlink" title="Huffman_Tree Algorithm Template"></a>Huffman_Tree Algorithm Template</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Huffman_Tree</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> val, lc, rc, fa, pos; <span class="comment">//lc leftchild , rc rightchild , fa father</span></span><br><span class="line">    <span class="built_in">Huffman_Tree</span>()&#123;&#125;;</span><br><span class="line">    <span class="built_in">Huffman_Tree</span>(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c, <span class="keyword">int</span> d, <span class="keyword">int</span> e) : <span class="built_in">val</span>(a), <span class="built_in">lc</span>(b), <span class="built_in">rc</span>(c), <span class="built_in">fa</span>(d), <span class="built_in">pos</span>(e)&#123;&#125;;</span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> Huffman_Tree &amp;a) <span class="keyword">const</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> val &gt; a.val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; d[N];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, root; <span class="comment">// root is equal to the root node</span></span><br><span class="line">priority_queue&lt;Huffman_Tree&gt; q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> a;</span><br><span class="line">        cin &gt;&gt; a;</span><br><span class="line">        ++root;</span><br><span class="line">        d[root] = <span class="built_in">Huffman_Tree</span>(a, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, root);</span><br><span class="line">        q.<span class="built_in">push</span>(d[root]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Huffman_Tree_Algorithm</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> tot = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (!q.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        Huffman_Tree temp_1 = q.<span class="built_in">top</span>();</span><br><span class="line">        q.<span class="built_in">pop</span>();</span><br><span class="line">        Huffman_Tree temp_2 = q.<span class="built_in">top</span>();</span><br><span class="line">        q.<span class="built_in">pop</span>();</span><br><span class="line">        ++root;</span><br><span class="line">        d[root] = <span class="built_in">Huffman_Tree</span>(temp_1.val + temp_2.val, temp_1.pos, temp_2.pos, <span class="number">0</span>, root);</span><br><span class="line">        temp_1.fa = temp_2.fa = root;</span><br><span class="line">        q.<span class="built_in">push</span>(d[root]);</span><br><span class="line">        ++tot;</span><br><span class="line">        <span class="keyword">if</span> (tot == n - <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> ans = <span class="number">0</span>; <span class="comment">// ans is equal to Huffman_Tree_Value</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Huffman_Tree_Traverse</span><span class="params">(<span class="keyword">int</span> root, <span class="keyword">int</span> deep)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (d[root].lc)</span><br><span class="line">        flag = <span class="number">1</span>, <span class="built_in">Huffman_Tree_Traverse</span>(d[root].lc, deep + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (d[root].rc)</span><br><span class="line">        flag = <span class="number">1</span>, <span class="built_in">Huffman_Tree_Traverse</span>(d[root].rc, deep + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (!flag)</span><br><span class="line">        ans += d[root].val * deep;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Print</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout &lt;&lt; ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">Init</span>();</span><br><span class="line">    <span class="built_in">Huffman_Tree_Algorithm</span>();</span><br><span class="line">    <span class="built_in">Huffman_Tree_Traverse</span>(root, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">Print</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/27/2021-10-27diary/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/%E5%B0%8F%E7%86%8A.jpg">
-      <meta itemprop="name" content="sakuraxz">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SakuraXz">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/27/2021-10-27diary/" class="post-title-link" itemprop="url">A diary</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-10-27 20:29:00" itemprop="dateCreated datePublished" datetime="2021-10-27T20:29:00+08:00">2021-10-27</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Daily-gossip/" itemprop="url" rel="index"><span itemprop="name">Daily gossip</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="A-diary"><a href="#A-diary" class="headerlink" title="A diary"></a>A diary</h1><p><strong><em>Simply record what I had gone through today</em></strong></p>
-<h2 id="The-story-of-taylor-formula"><a href="#The-story-of-taylor-formula" class="headerlink" title="The story of taylor formula"></a>The story of taylor formula</h2><p>&ensp;&ensp;&ensp;&ensp;When she asked me the question of Taylor Formula, I still didn’t realize the seriousness of the situation. But, after I read this question, I was lost in thought. Because she was right , but “so was the answer”.</p>
-<p>&ensp;&ensp;&ensp;&ensp;The question was that “please get the Taylor expansion of cos(x^2), when x is equal to 0”. The answer was going to replace the x with the x^2 in the Taylor expansion of x. But in fact, if you take the derivative by definition, you should not get the correct answer.</p>
-<p>&ensp;&ensp;&ensp;&ensp;After a long thought, I guessed I understood why this is happening. The substitution for the answer is essentially x^2 as the independent variable. But it doesn’t make sense in my opinion.</p>
-<h2 id="The-completion-of-happiness-of-psychology"><a href="#The-completion-of-happiness-of-psychology" class="headerlink" title="The completion of happiness of psychology"></a>The completion of happiness of psychology</h2><p>&ensp;&ensp;&ensp;&ensp;Today I have officially finished the psychology of happiness course. It wasn’t that long, but I felt very practical in daily life. The Peak-End Rule and Emotion Management are the ones I have understood and used.</p>
-<h3 id="The-peak-end-rule"><a href="#The-peak-end-rule" class="headerlink" title="The peak-end rule"></a>The peak-end rule</h3><p>&ensp;&ensp;&ensp;&ensp;Peak-end Rule states that if the experience is pleasant at the peak and end of an experience, then the experience as a whole is pleasant.<br>&ensp;&ensp;&ensp;&ensp;In the class meeting about sharing cultural communication, I used this theoty by playing a piece of bgm in powerpoint at the end of the day. It turned out that I got a lot of attention from the audience.Finally, the powerpoint is well displayed.</p>
-<h3 id="Emotion-management"><a href="#Emotion-management" class="headerlink" title="Emotion management"></a>Emotion management</h3><p>&ensp;&ensp;&ensp;&ensp;This is one of my favorite topics.Negative and positive emotions, the focus of the topic,got me thinking. At this time, people place too much emphasis on positive emotions. But the effects of negative emotions should not be ignored. In fact, It makes people better at surviving. This might be strange, but it seems reasonable.<br>&ensp;&ensp;&ensp;&ensp;For instance,there was been a lot going on lately. So I had anxiety and tension,which clears my head, and I can quickly make a plan to solve the current situation. This is amazing, isn’t it?</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/21/Learning%20abou%20MarkDown/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/%E5%B0%8F%E7%86%8A.jpg">
-      <meta itemprop="name" content="sakuraxz">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SakuraXz">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/21/Learning%20abou%20MarkDown/" class="post-title-link" itemprop="url">Learning about MarkDown</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-10-21 08:10:24" itemprop="dateCreated datePublished" datetime="2021-10-21T08:10:24+08:00">2021-10-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-30 00:00:00" itemprop="dateModified" datetime="2021-10-30T00:00:00+08:00">2021-10-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Initialization/" itemprop="url" rel="index"><span itemprop="name">Initialization</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Study-MarkDown-Language"><a href="#Study-MarkDown-Language" class="headerlink" title="Study MarkDown Language"></a>Study MarkDown Language</h1><h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h2><pre><code>Now I am going to write down and record how I study Markdown.
-I will take this opportunity to publish my first blog.
-</code></pre><h2 id="Body"><a href="#Body" class="headerlink" title="Body"></a>Body</h2><h3 id="The-code-block-method"><a href="#The-code-block-method" class="headerlink" title="The code block method"></a>The code block method</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;hello world!&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>This program outputs from <code>cout&lt;&lt;&quot;hello world!&quot;;</code></p>
-<h3 id="The-list-method"><a href="#The-list-method" class="headerlink" title="The list method"></a>The list method</h3><h4 id="Ordered-List"><a href="#Ordered-List" class="headerlink" title="Ordered List"></a>Ordered List</h4><ol>
-<li>list one</li>
-<li>list two<ol>
-<li>list two point one</li>
-<li>list two point two</li>
-</ol>
-</li>
-<li>list three<h4 id="Unordered-List"><a href="#Unordered-List" class="headerlink" title="Unordered List"></a>Unordered List</h4></li>
-</ol>
-<ul>
-<li>list one</li>
-<li>list two<ul>
-<li>list two point one</li>
-</ul>
-</li>
-<li>list three </li>
-</ul>
-<h3 id="The-Bold-and-Tilt"><a href="#The-Bold-and-Tilt" class="headerlink" title="The Bold and Tilt"></a>The Bold and Tilt</h3><h4 id="Bold"><a href="#Bold" class="headerlink" title="Bold"></a>Bold</h4><p>look！the word <strong>bold</strong> is in bold.</p>
-<h4 id="Tilt"><a href="#Tilt" class="headerlink" title="Tilt"></a>Tilt</h4><p>look！the word <em>tilt</em> is in tilt.</p>
-<h4 id="Bold-and-Tilt"><a href="#Bold-and-Tilt" class="headerlink" title="Bold and Tilt"></a>Bold and Tilt</h4><p>look！the sentence <strong><em>hello world!</em></strong> is in bold and tilt.</p>
-<hr>
-<p><strong>First Update:</strong> 2021-10-27 21:14:00</p>
-<h3 id="The-Blank-Space"><a href="#The-Blank-Space" class="headerlink" title="The Blank Space"></a>The Blank Space</h3><p>&ensp;&ensp;&ensp;&ensp;look! The paragraph was preceded by a blank.</p>
-<hr>
-<p><strong>Second Update:</strong> 2021-10-28 20:37:00</p>
-<h3 id="The-Reference"><a href="#The-Reference" class="headerlink" title="The Reference"></a>The Reference</h3><h4 id="The-article-quoted"><a href="#The-article-quoted" class="headerlink" title="The article quoted"></a>The article quoted</h4><blockquote>
-<p>look! I’m being quoted!</p>
-<blockquote>
-<p>So do I !</p>
-</blockquote>
-</blockquote>
-<h4 id="Links-to-reference"><a href="#Links-to-reference" class="headerlink" title="Links to reference"></a>Links to reference</h4><p><a target="_blank" rel="noopener" href="https://sakuraxz.github.io/">look！ Please click on the me</a></p>
-<hr>
-<p><strong>Third Update:</strong> 2021-10-30 20:47:00</p>
-<h3 id="The-Strikethrough"><a href="#The-Strikethrough" class="headerlink" title="The Strikethrough"></a>The Strikethrough</h3><p><del>look! I’m being deleted!</del></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/20/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/%E5%B0%8F%E7%86%8A.jpg">
-      <meta itemprop="name" content="sakuraxz">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SakuraXz">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/20/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-10-20 10:22:54 / 修改时间：00:00:00" itemprop="dateCreated datePublished" datetime="2021-10-20T10:22:54+08:00">2021-10-20</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Initialization/" itemprop="url" rel="index"><span itemprop="name">Initialization</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -903,6 +293,7 @@ I will take this opportunity to publish my first blog.
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Red-Black-Tree-Data-Structure-Template"><span class="nav-number">1.</span> <span class="nav-text">Red Black Tree Data_Structure Template</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -1026,6 +417,25 @@ I will take this opportunity to publish my first blog.
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '801dd0262407f388bbc0',
+      clientSecret: 'f9419b86166f4645f6ceae3e3613e22cca5a0ea2',
+      repo        : 'sakuraxz.github.io',
+      owner       : 'SakuraXz',
+      admin       : ['SakuraXz'],
+      id          : 'a9c38c8a0d48dc4a48b5935140d87ce2',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 </body>
 </html>
