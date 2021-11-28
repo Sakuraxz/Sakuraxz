@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-11-20T06:28:10.394Z</updated>
+  <updated>2021-11-28T08:58:21.233Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>A diary</title>
+    <link href="http://example.com/2021/11/28/2021-11-28diary/"/>
+    <id>http://example.com/2021/11/28/2021-11-28diary/</id>
+    <published>2021-11-28T08:30:27.000Z</published>
+    <updated>2021-11-28T08:58:21.233Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Endless-matters"><a href="#Endless-matters" class="headerlink" title="Endless matters"></a>Endless matters</h1><p>&ensp;&ensp;&ensp;&ensp;I haven’t written a diary for a month. It is not because I have nothing to record, but on the contrary, just I have no energy to make it. Therefore, tell what I want say to myself in little time. Time is limited, but matters are endless. </p><h1 id="Final-exam"><a href="#Final-exam" class="headerlink" title="Final exam"></a>Final exam</h1><p>&ensp;&ensp;&ensp;&ensp;The final exam is not big problem, just be normal, just do it. </p><h1 id="Knowledge"><a href="#Knowledge" class="headerlink" title="Knowledge"></a>Knowledge</h1><p>&ensp;&ensp;&ensp;&ensp;<em>The useful and interesting knowledge is still waiting to be studied.</em><br>&ensp;&ensp;&ensp;&ensp;This week I spent many hours in the assembly language study, which the result was that I finished reading the book. Of course, this is a tiny target of my plans. The following I am going to focus on that object-oriented and operating system. Try to achieve some of the targets before the holidays.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Endless-matters&quot;&gt;&lt;a href=&quot;#Endless-matters&quot; class=&quot;headerlink&quot; title=&quot;Endless matters&quot;&gt;&lt;/a&gt;Endless matters&lt;/h1&gt;&lt;p&gt;&amp;ensp;&amp;ensp;&amp;ensp;</summary>
+      
+    
+    
+    
+    <category term="Daily gossip" scheme="http://example.com/categories/Daily-gossip/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Red Black Tree(RBT)</title>
