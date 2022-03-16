@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-03-15T03:15:15.532Z</updated>
+  <updated>2022-03-16T01:32:04.478Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>The keyword &#39;explicit&#39;</title>
+    <link href="http://example.com/2022/03/16/the%20keyword%20explicit/"/>
+    <id>http://example.com/2022/03/16/the%20keyword%20explicit/</id>
+    <published>2022-03-16T00:21:46.000Z</published>
+    <updated>2022-03-16T01:32:04.478Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="C-the-keyword-‘explicit’"><a href="#C-the-keyword-‘explicit’" class="headerlink" title="C++ the keyword ‘explicit’"></a>C++ the keyword ‘explicit’</h1><p>&ensp;&ensp;&ensp;&ensp;The keyword ‘explicit’ disallows single-argument constructors from being used for automatic type conversions.</p><h2 id="The-sample"><a href="#The-sample" class="headerlink" title="The sample"></a>The sample</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="comment">//  explicit Test(int a)</span></span><br><span class="line">    <span class="built_in">Test</span>(<span class="keyword">int</span> a)</span><br><span class="line">    &#123;</span><br><span class="line">        data = a;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;data = &quot;</span> &lt;&lt; data &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Test t = <span class="number">2</span>;</span><br><span class="line">    t.<span class="built_in">show</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>&ensp;&ensp;&ensp;&ensp;According to the above code, we can to know that the statement ‘Test t = 2’ is legal, which uses automatic type conversion to create a temporary object Test(2), then calls the copy constructor function to instantiate the Test t.<br>&ensp;&ensp;&ensp;&ensp;On the other hand, if we try to modify the statement ‘Test(int a) …’, to modify the single-argument constructor function , just adding the keyword ‘explicit’ , we will find an error occurred in the code by the compiler. In fact, because of the ‘explicit’, the program can’t use the automatic type conversion. We can only modify the statement ‘Test t = 2’ to ‘Test t = Test(2)’. (the automatic type conversion is implicit conversion, the cast type conversion is explicit conversion.) </p><h2 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h2><ol><li>Explicit is valid in two cases:<ul><li>When the constructor of a class has only one argument;</li><li>A class whose constructor has default values for all but the first argument. (The first parameter may or may not have a default value)</li></ul></li><li>The explicit ‘keyword’ is used to prevent implicit automatic conversions of class constructors.</li></ol><h3 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h3><p><a href="https://blog.csdn.net/weixin_41082581/article/details/103870671">https://blog.csdn.net/weixin_41082581/article/details/103870671</a><br><a href="https://zhuanlan.zhihu.com/p/137947734">https://zhuanlan.zhihu.com/p/137947734</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;C-the-keyword-‘explicit’&quot;&gt;&lt;a href=&quot;#C-the-keyword-‘explicit’&quot; class=&quot;headerlink&quot; title=&quot;C++ the keyword ‘explicit’&quot;&gt;&lt;/a&gt;C++ the keyw</summary>
+      
+    
+    
+    
+    <category term="C++" scheme="http://example.com/categories/C/"/>
+    
+    
+    <category term="Grammar" scheme="http://example.com/tags/Grammar/"/>
+    
+  </entry>
   
   <entry>
     <title>QT_document</title>

@@ -158,6 +158,85 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/16/the%20keyword%20explicit/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E5%B0%8F%E7%86%8A.jpg">
+      <meta itemprop="name" content="sakuraxz">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SakuraXz">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/16/the%20keyword%20explicit/" class="post-title-link" itemprop="url">The keyword 'explicit'</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-16 08:21:46 / 修改时间：09:32:04" itemprop="dateCreated datePublished" datetime="2022-03-16T08:21:46+08:00">2022-03-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="C-the-keyword-‘explicit’"><a href="#C-the-keyword-‘explicit’" class="headerlink" title="C++ the keyword ‘explicit’"></a>C++ the keyword ‘explicit’</h1><p>&ensp;&ensp;&ensp;&ensp;The keyword ‘explicit’ disallows single-argument constructors from being used for automatic type conversions.</p>
+<h2 id="The-sample"><a href="#The-sample" class="headerlink" title="The sample"></a>The sample</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="comment">//  explicit Test(int a)</span></span><br><span class="line">    <span class="built_in">Test</span>(<span class="keyword">int</span> a)</span><br><span class="line">    &#123;</span><br><span class="line">        data = a;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;data = &quot;</span> &lt;&lt; data &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Test t = <span class="number">2</span>;</span><br><span class="line">    t.<span class="built_in">show</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&ensp;&ensp;&ensp;&ensp;According to the above code, we can to know that the statement ‘Test t = 2’ is legal, which uses automatic type conversion to create a temporary object Test(2), then calls the copy constructor function to instantiate the Test t.<br>&ensp;&ensp;&ensp;&ensp;On the other hand, if we try to modify the statement ‘Test(int a) …’, to modify the single-argument constructor function , just adding the keyword ‘explicit’ , we will find an error occurred in the code by the compiler. In fact, because of the ‘explicit’, the program can’t use the automatic type conversion. We can only modify the statement ‘Test t = 2’ to ‘Test t = Test(2)’. (the automatic type conversion is implicit conversion, the cast type conversion is explicit conversion.) </p>
+<h2 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h2><ol>
+<li>Explicit is valid in two cases:<ul>
+<li>When the constructor of a class has only one argument;</li>
+<li>A class whose constructor has default values for all but the first argument. (The first parameter may or may not have a default value)</li>
+</ul>
+</li>
+<li>The explicit ‘keyword’ is used to prevent implicit automatic conversions of class constructors.</li>
+</ol>
+<h3 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41082581/article/details/103870671">https://blog.csdn.net/weixin_41082581/article/details/103870671</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/137947734">https://zhuanlan.zhihu.com/p/137947734</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/15/QT_document/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1173,118 +1252,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/21/Learning%20abou%20MarkDown/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/%E5%B0%8F%E7%86%8A.jpg">
-      <meta itemprop="name" content="sakuraxz">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SakuraXz">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/21/Learning%20abou%20MarkDown/" class="post-title-link" itemprop="url">Learning about MarkDown</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-10-21 08:10:24" itemprop="dateCreated datePublished" datetime="2021-10-21T08:10:24+08:00">2021-10-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-30 00:00:00" itemprop="dateModified" datetime="2021-10-30T00:00:00+08:00">2021-10-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Initialization/" itemprop="url" rel="index"><span itemprop="name">Initialization</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Study-MarkDown-Language"><a href="#Study-MarkDown-Language" class="headerlink" title="Study MarkDown Language"></a>Study MarkDown Language</h1><h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h2><pre><code>Now I am going to write down and record how I study Markdown.
-I will take this opportunity to publish my first blog.
-</code></pre><h2 id="Body"><a href="#Body" class="headerlink" title="Body"></a>Body</h2><h3 id="The-code-block-method"><a href="#The-code-block-method" class="headerlink" title="The code block method"></a>The code block method</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;hello world!&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>This program outputs from <code>cout&lt;&lt;&quot;hello world!&quot;;</code></p>
-<h3 id="The-list-method"><a href="#The-list-method" class="headerlink" title="The list method"></a>The list method</h3><h4 id="Ordered-List"><a href="#Ordered-List" class="headerlink" title="Ordered List"></a>Ordered List</h4><ol>
-<li>list one</li>
-<li>list two<ol>
-<li>list two point one</li>
-<li>list two point two</li>
-</ol>
-</li>
-<li>list three<h4 id="Unordered-List"><a href="#Unordered-List" class="headerlink" title="Unordered List"></a>Unordered List</h4></li>
-</ol>
-<ul>
-<li>list one</li>
-<li>list two<ul>
-<li>list two point one</li>
-</ul>
-</li>
-<li>list three </li>
-</ul>
-<h3 id="The-Bold-and-Tilt"><a href="#The-Bold-and-Tilt" class="headerlink" title="The Bold and Tilt"></a>The Bold and Tilt</h3><h4 id="Bold"><a href="#Bold" class="headerlink" title="Bold"></a>Bold</h4><p>look！the word <strong>bold</strong> is in bold.</p>
-<h4 id="Tilt"><a href="#Tilt" class="headerlink" title="Tilt"></a>Tilt</h4><p>look！the word <em>tilt</em> is in tilt.</p>
-<h4 id="Bold-and-Tilt"><a href="#Bold-and-Tilt" class="headerlink" title="Bold and Tilt"></a>Bold and Tilt</h4><p>look！the sentence <strong><em>hello world!</em></strong> is in bold and tilt.</p>
-<hr>
-<p><strong>First Update:</strong> 2021-10-27 21:14:00</p>
-<h3 id="The-Blank-Space"><a href="#The-Blank-Space" class="headerlink" title="The Blank Space"></a>The Blank Space</h3><p>&ensp;&ensp;&ensp;&ensp;look! The paragraph was preceded by a blank.</p>
-<hr>
-<p><strong>Second Update:</strong> 2021-10-28 20:37:00</p>
-<h3 id="The-Reference"><a href="#The-Reference" class="headerlink" title="The Reference"></a>The Reference</h3><h4 id="The-article-quoted"><a href="#The-article-quoted" class="headerlink" title="The article quoted"></a>The article quoted</h4><blockquote>
-<p>look! I’m being quoted!</p>
-<blockquote>
-<p>So do I !</p>
-</blockquote>
-</blockquote>
-<h4 id="Links-to-reference"><a href="#Links-to-reference" class="headerlink" title="Links to reference"></a>Links to reference</h4><p><a target="_blank" rel="noopener" href="https://sakuraxz.github.io/">look！ Please click on the me</a></p>
-<hr>
-<p><strong>Third Update:</strong> 2021-10-30 20:47:00</p>
-<h3 id="The-Strikethrough"><a href="#The-Strikethrough" class="headerlink" title="The Strikethrough"></a>The Strikethrough</h3><p><del>look! I’m being deleted!</del></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1356,20 +1323,20 @@ I will take this opportunity to publish my first blog.
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
